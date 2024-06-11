@@ -1,0 +1,21 @@
+import java.util.*;
+
+public class SortHashMapByValue {
+    public static void main(String[] args) {
+      
+        HashMap<String, Integer> map = new HashMap<>();
+        map.put("apple", 3);
+        map.put("banana", 2);
+        map.put("cherry", 5);
+        map.put("date", 1);
+
+
+        System.out.println("Original HashMap: " + map);
+
+    
+        map.entrySet()
+           .stream()
+           .sorted(Map.Entry.comparingByValue())
+           .forEach(entry -> System.out.println(entry.getKey() + " = " + entry.getValue()));
+    }
+}
