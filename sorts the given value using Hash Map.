@@ -1,0 +1,25 @@
+import java.util.*;
+
+public class SimpleSortHashMapByValue {
+    public static void main(String[] args) {
+        // Create a HashMap and populate it with some data
+        HashMap<String, Integer> map = new HashMap<>();
+        map.put("John", 50);
+        map.put("Jane", 30);
+        map.put("Bob", 40);
+        map.put("Alice", 60);
+
+        // Print the original map
+        System.out.println("Original HashMap: " + map);
+
+        // Sort the HashMap by value
+        List<Map.Entry<String, Integer>> sortedEntries = new ArrayList<>(map.entrySet());
+        sortedEntries.sort(Map.Entry.comparingByValue());
+
+        // Print the sorted map entries
+        System.out.println("Sorted HashMap by Value:");
+        for (Map.Entry<String, Integer> entry : sortedEntries) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
+    }
+}
