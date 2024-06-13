@@ -1,0 +1,43 @@
+// Bank.java
+public class Bank {
+    public double getRateOfInterest() {
+        return 0.0; // Default implementation, overridden in child classes
+    }
+}
+
+// SBI.java
+public class SBI extends Bank {
+    @Override
+    public double getRateOfInterest() {
+        return 8.4;
+    }
+}
+
+// ICICI.java
+public class ICICI extends Bank {
+    @Override
+    public double getRateOfInterest() {
+        return 7.3;
+    }
+}
+
+// AXIS.java
+public class AXIS extends Bank {
+    @Override
+    public double getRateOfInterest() {
+        return 9.7;
+    }
+}
+
+// Main.java
+public class Main {
+    public static void main(String[] args) {
+        SBI sbi = new SBI();
+        ICICI icici = new ICICI();
+        AXIS axis = new AXIS();
+
+        System.out.println("Rate of interest from SBI: " + sbi.getRateOfInterest() + "%");
+        System.out.println("Rate of interest from ICICI: " + icici.getRateOfInterest() + "%");
+        System.out.println("Rate of interest from AXIS: " + axis.getRateOfInterest() + "%");
+    }
+}
