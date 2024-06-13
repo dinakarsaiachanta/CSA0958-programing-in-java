@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class ATM {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[] denominations = {2000, 500, 200, 100};
+        int[] notes = new int[4];
+        int[] priority = new int[4];
+        System.out.println("Enter the priority of denominations (1 for highest priority, 4 for lowest priority):");
+        System.out.println("For 2000: ");
+        priority[0] = scanner.nextInt();
+        System.out.println("For 500: ");
+        priority[1] = scanner.nextInt();
+        System.out.println("For 200: ");
+        priority[2] = scanner.nextInt();
+        System.out.println("For 100: ");
+        priority[3] = scanner.nextInt();
+        System.out.println("Enter the number of notes for each denomination:");
+        System.out.println("2000: ");
+        notes[0] = scanner.nextInt();
+        System.out.println("500: ");
+        notes[1] = scanner.nextInt();
+        System.out.println("200: ");
+        notes[2] = scanner.nextInt();
+        System.out.println("100: ");
+        notes[3] = scanner.nextInt();
+
+        int totalAmount = 0;
+        for (int i = 0; i < 4; i++) {
+            totalAmount += notes[i] * denominations[i];
+        }
+        System.out.println("Total available balance in the ATM: " + totalAmount);
+    }
+}
