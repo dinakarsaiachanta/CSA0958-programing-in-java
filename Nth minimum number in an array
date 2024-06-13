@@ -1,0 +1,22 @@
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] array = {12, 5, 8, 7, 3, 15, 6, 10}; // Example array
+        int M = 2; // Example Mth maximum
+        int N = 3; // Example Nth minimum
+
+        Arrays.sort(array);
+
+        int MthMax = array[array.length - M];
+        int NthMin = array[N - 1];
+
+        int sum = MthMax + NthMin;
+        int difference = MthMax - NthMin;
+
+        System.out.println("Mth maximum number: " + MthMax);
+        System.out.println("Nth minimum number: " + NthMin);
+        System.out.println("Sum: " + sum);
+        System.out.println("Difference: " + difference);
+    }
+}
