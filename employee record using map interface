@@ -1,0 +1,41 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class EmployeeRecord {
+    public static void main(String[] args) {
+        // Create a HashMap to store employee records
+        Map<Integer, String> employeeMap = new HashMap<>();
+
+        // 1. Add employee records
+        employeeMap.put(101, "John Doe");
+        employeeMap.put(102, "Jane Smith");
+        employeeMap.put(103, "Emily Johnson");
+
+        // 2. Display all employee records
+        System.out.println("Employee Records:");
+        for (Map.Entry<Integer, String> entry : employeeMap.entrySet()) {
+            System.out.println("Employee ID: " + entry.getKey() + ", Name: " + entry.getValue());
+        }
+
+        // 3. Display the size of the map
+        System.out.println("Size of employee map: " + employeeMap.size());
+
+        // 4. Remove an employee record by ID
+        int idToRemove = 102;
+        employeeMap.remove(idToRemove);
+        System.out.println("Employee ID " + idToRemove + " removed.");
+
+        // Display all employee records after removal
+        System.out.println("Employee Records after removal:");
+        for (Map.Entry<Integer, String> entry : employeeMap.entrySet()) {
+            System.out.println("Employee ID: " + entry.getKey() + ", Name: " + entry.getValue());
+        }
+
+        // 5. Clear the map
+        employeeMap.clear();
+        System.out.println("Employee map cleared.");
+
+        // Display the size of the map after clearing
+        System.out.println("Size of employee map after clearing: " + employeeMap.size());
+    }
+}
