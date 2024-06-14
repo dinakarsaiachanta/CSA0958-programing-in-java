@@ -1,0 +1,35 @@
+class NaturalNumberThread extends Thread {
+    private int start;
+    private int end;
+
+    public NaturalNumberThread(int start, int end) {
+        this.start = start;
+        this.end = end;
+    }
+
+    @Override
+    public void run() {
+        try {
+            for (int i = start; i <= end; i++) {
+                System.out.print(i + " ");
+                Thread.sleep(500); // Sleep for 500 milliseconds (0.5 seconds)
+            }
+        } catch (InterruptedException e) {
+            System.out.println("Thread interrupted: " + e.getMessage());
+        }
+    }
+}
+
+public class ParallelThreads {
+    public static void main(String[] args) {
+        // Create three threads to display natural numbers in parallel
+        NaturalNumberThread thread1 = new NaturalNumberThread(1, 10);
+        NaturalNumberThread thread2 = new NaturalNumberThread(11, 20);
+        NaturalNumberThread thread3 = new NaturalNumberThread(21, 30);
+
+        // Start the threads
+        thread1.start();
+        thread2.start();
+        thread3.start();
+    }
+}
