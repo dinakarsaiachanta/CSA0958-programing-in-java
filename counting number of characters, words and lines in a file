@@ -1,0 +1,37 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class FileStats {
+    public static void main(String[] args) {
+        String fileName = "sample.txt"; // Path to the file
+
+        int charCount = 0;
+        int wordCount = 0;
+        int lineCount = 0;
+
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(fileName));
+
+            String line;
+            while ((line = reader.readLine()) != null) {
+                lineCount++; // Increment line count for each line read
+                charCount += line.length(); // Add line length to character count
+
+                // Split line into words and count words
+                String[] words = line.split("\\s+");
+                wordCount += words.length;
+            }
+
+            // Close the reader
+            reader.close();
+
+            // Display the counts
+            System.out.println("Number of characters: " + charCount);
+            System.out.println("Number of words: " + wordCount);
+            System.out.println("Number of lines: " + lineCount);
+        } catch (IOException e) {
+            System.err.println("Error reading the file: " + e.getMessage());
+        }
+    }
+}
