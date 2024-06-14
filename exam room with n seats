@@ -1,0 +1,54 @@
+import java.util.TreeSet;
+
+class ExamRoom {
+    private int n;
+    private TreeSet<Integer> occupiedSeats;
+
+    public ExamRoom(int n) {
+        this.n = n;
+        this.occupiedSeats = new TreeSet<>();
+    }
+
+    public int seat() {
+        if (occupiedSeats.isEmpty()) {
+            occupiedSeats.add(0);
+            return 0;
+        }
+
+        int maxDistance = occupiedSeats.first(); // Distance from the first seat to the closest student
+        int seat = 0;
+
+        Integer prev = null;
+        for (Integer curr : occupiedSeats) {
+            if (prev != null) {
+                int distance = (curr - prev) / 2;
+                if (distance > maxDistance) {
+                    maxDistance = distance;
+                    seat = prev + distance;
+                }
+            }
+            prev = curr;
+        }
+
+        if (n - 1 - occupiedSeats.last() > maxDistance) {
+            seat = n - 1;
+        }
+
+        occupiedSeats.add(seat);
+        return seat;
+    }
+
+    public void leave(int p) {
+        occupiedSeats.remove(p);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        ExamRoom room = new ExamRoom(10);
+        System.out.println(room.seat()); // Output: 0
+        System.out.println(room.seat()); // Output: 9
+        room.leave(0);
+        System.out.println(room.seat()); // Output: 0
+    }
+}
