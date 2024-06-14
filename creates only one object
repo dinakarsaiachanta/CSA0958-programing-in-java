@@ -1,0 +1,30 @@
+class Singleton {
+    private static Singleton instance = null;
+
+    // Private constructor to prevent instantiation from outside
+    private Singleton() {
+    }
+
+    // Static method to get the instance of Singleton class
+    public static Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+            System.out.println("Singleton object created.");
+        } else {
+            throw new IllegalStateException("Singleton instance already exists.");
+        }
+        return instance;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            Singleton obj1 = Singleton.getInstance(); // Creating the first object
+            // Attempting to create a second object
+            Singleton obj2 = Singleton.getInstance(); // This should throw an exception
+        } catch (IllegalStateException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
