@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class ProvidentFundCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            System.out.print("Enter the salary of the employee: ");
+            double salary = scanner.nextDouble();
+
+            // Calculate Provident Fund (assuming 12% of the salary)
+            double providentFund = salary * 0.12;
+
+            System.out.println("Provident Fund: " + providentFund);
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+        } finally {
+            scanner.close(); // Close the scanner in finally block to prevent resource leak
+        }
+    }
+}
