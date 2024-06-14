@@ -1,0 +1,50 @@
+public class Student {
+    private String name;
+    private int registerNumber;
+    private int[] subjectMarks;
+
+    // Constructor to initialize student details
+    public Student(String name, int registerNumber, int[] subjectMarks) {
+        this.name = name;
+        this.registerNumber = registerNumber;
+        this.subjectMarks = subjectMarks;
+    }
+
+    // Method to calculate total marks
+    public int calculateTotalMarks() {
+        int total = 0;
+        for (int mark : subjectMarks) {
+            total += mark;
+        }
+        return total;
+    }
+
+    // Method to calculate average marks
+    public double calculateAverageMarks() {
+        int total = calculateTotalMarks();
+        return (double) total / subjectMarks.length;
+    }
+
+    // Method to display student details and marks
+    public void displayStudentDetails() {
+        System.out.println("Student Name: " + name);
+        System.out.println("Register Number: " + registerNumber);
+        System.out.println("Subject Marks:");
+        for (int i = 0; i < subjectMarks.length; i++) {
+            System.out.println("Subject " + (i + 1) + ": " + subjectMarks[i]);
+        }
+        System.out.println("Total Marks: " + calculateTotalMarks());
+        System.out.println("Average Marks: " + calculateAverageMarks());
+    }
+
+    public static void main(String[] args) {
+        // Sample subject marks
+        int[] marks = {85, 75, 90, 80, 95};
+
+        // Create a Student object
+        Student student1 = new Student("John", 123456, marks);
+
+        // Display student details and marks
+        student1.displayStudentDetails();
+    }
+}
