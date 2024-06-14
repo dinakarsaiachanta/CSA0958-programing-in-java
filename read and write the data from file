@@ -1,0 +1,31 @@
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class FileReadWrite {
+    public static void main(String[] args) {
+        String sourceFile = "source.txt"; // Path to the source file
+        String destinationFile = "destination.txt"; // Path to the destination file
+
+        try {
+            // FileReader for reading from the source file
+            FileReader reader = new FileReader(sourceFile);
+            // FileWriter for writing to the destination file
+            FileWriter writer = new FileWriter(destinationFile);
+
+            int character;
+            // Read character by character from the source file and write to the destination file
+            while ((character = reader.read()) != -1) {
+                writer.write(character);
+            }
+
+            // Close the resources
+            reader.close();
+            writer.close();
+
+            System.out.println("Data copied from source.txt to destination.txt successfully.");
+        } catch (IOException e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+    }
+}
